@@ -52,6 +52,13 @@ const CardBook = (props) => {
     };
 
     const handleSend = () => {
+        // Inputlarni tekshirish
+        if (!name || !phone || !email || !description || !opketishKun || !opkelishKun) {
+            // Agar bittasi ham to'ldirilmagan bo'lsa, alert chiqaring
+            alert('Iltimos, barcha maydonlarni to\'ldiring.');
+            return; // Yuborishni davom etmang
+        }
+
         setIsLoading(true); // Yuborishni boshladik
         let newData = {
             name: name,
@@ -64,11 +71,9 @@ const CardBook = (props) => {
 
         idBook.data = { ...idBook.data, ...newData };
         idBook.BooleanBook = true;
-        console.log(idBook);
 
         AuthBook.putBook(idBook.id, idBook)
             .then(res => {
-                console.log(res);
                 setIsLoading(false);
                 setModalVisible(false) // Yuborish tugadi, loading holatini o'chiramiz
                 // Sahifani yangilash logikasi shu joyda qo'shilishi mumkin
@@ -78,6 +83,26 @@ const CardBook = (props) => {
                 setIsLoading(false); // Yuborishda xatolik ro'y berib, loading holatini o'chiramiz
             });
     };
+
+
+    const handleSendCleaning = () => {
+        setIsLoading(true); // Yuborishni boshladik
+        let newData = {};
+
+        idBook.data = { ...idBook.data, ...newData };
+        idBook.BooleanBook = false;
+
+        AuthBook.putBook(idBook.id, idBook)
+            .then(res => {
+                setIsLoading(false);
+                setmodalNewWindow(false)// Yuborish tugadi, loading holatini o'chiramiz
+                // Sahifani yangilash logikasi shu joyda qo'shilishi mumkin
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                setIsLoading(false); // Yuborishda xatolik ro'y berib, loading holatini o'chiramiz
+            });
+    }
 
     return (
         <View style={styles.container}>
@@ -189,9 +214,19 @@ const CardBook = (props) => {
                             <Text style={styles.modalInfoText}>Olib keladigan kun: {idBook && idBook.data.opkelishKun}</Text>
                             <Text style={styles.modalInfoText}>Description: {idBook && idBook.data.description}</Text>
                         </View>
-                        <TouchableOpacity style={styles.modalButton} onPress={handleModalClose}>
-                            <Text style={styles.modalButtonText}>Orqaga</Text>
-                        </TouchableOpacity>
+                        <View style={{ width: 200, flexDirection: "row" }}>
+                            <TouchableOpacity style={styles.modalButton} onPress={handleModalClose}>
+                                <Text style={styles.modalButtonText}>Orqaga</Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.modalButton} onPress={handleSendCleaning}>
+                                {
+                                    isLoading ?
+                                        <ActivityIndicator size="large" color="blue" />
+                                        :
+                                        <Text style={styles.modalButtonText}>Olib keldi</Text>
+                                }
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </Modal>
