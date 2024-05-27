@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.SOFF_marketplace"
+    namespace "com.kutubxona"
     defaultConfig {
-        applicationId "com.SOFF_marketplace"
+        applicationId "com.kutubxona"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

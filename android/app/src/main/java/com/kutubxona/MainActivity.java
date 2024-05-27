@@ -1,4 +1,4 @@
-package com.SOFF_marketplace;
+package com.kutubxona;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

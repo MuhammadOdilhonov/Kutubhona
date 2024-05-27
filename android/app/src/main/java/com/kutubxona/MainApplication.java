@@ -1,4 +1,4 @@
-package com.SOFF_marketplace;
+package com.kutubxona;
 
 import android.app.Application;
 import com.facebook.react.PackageList;
