@@ -24,11 +24,12 @@ const Home = () => {
         setSearchText(text);
         setShowClearIcon(text.length > 0);
         const searchRegex = new RegExp(text.trim(), 'gi'); // Case-insensitive search with 'gi' flag
-        const filteredDat = filteredData.filter(item => searchRegex.test(item.NameBook)); // Search by name property (assuming data has a 'name' property)
+        const filteredDat = filteredData.filter(item => searchRegex.test(item.NameBook) || searchRegex.test(item.AfterBook)); // Search by name property (assuming data has a 'name' property)
         setData(filteredDat);
     };
 
     const handleClearText = () => {
+        setData(filteredData)
         setSearchText('');
         setShowClearIcon(false);
     };
@@ -39,13 +40,13 @@ const Home = () => {
                 <View style={styles.container}>
                     <View style={{ ...styles.header_textvsinput }}>
                         <View style={{ zIndex: -1 }}>
-                            <Text style={styles.header_textvsinput_title}>Sizga kerak {"\n"}bolgan  kitopni topamiz</Text>
+                            <Text style={styles.header_textvsinput_title}>Sizga kerak {"\n"}bolgan  kitobni topamiz</Text>
                         </View>
                         <View style={styles.header_textvsinput_search}>
                             <Image source={require('../../assets/search_icon.png')} style={styles.header_textvsinput_search_searchIcon} />
                             <TextInput
                                 style={styles.header_textvsinput_search_searchInput}
-                                placeholder="Search..."
+                                placeholder="Izlash..."
                                 placeholderTextColor="black"
                                 onChangeText={handleSearchChange}
                                 value={searchText}
@@ -139,6 +140,3 @@ const styles = StyleSheet.create({
 });
 
 export default Home;
-
-
-

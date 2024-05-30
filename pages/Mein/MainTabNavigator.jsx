@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from '../Home/Home';
 import ALongTime from '../../components/ALongTime/ALongTime';
+import Law from '../../components/Law/Law';
 
 
 const Tab = createBottomTabNavigator();
@@ -21,8 +22,11 @@ const ALongTimeStack = () => (
         <Stack.Screen name="ALongTimeScreen" component={ALongTime} />
     </Stack.Navigator>
 );
-
-
+const LawStack = () => (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="LawScreen" component={Law} />
+    </Stack.Navigator>
+);
 
 const MainTabNavigator = () => {
     const Dot = ({ color, focused }) => (
@@ -88,6 +92,21 @@ const MainTabNavigator = () => {
                             <View style={{ flexWrap: "wrap", alignItems: "center" }}>
                                 <Image
                                     source={require('../../assets/ALongTime.png')}
+                                    style={{ width: 35, height: 35, tintColor: color }}
+                                />
+                                <Dot focused={focused} />
+                            </View>
+                        ),
+                    }}
+                />
+                <Tab.Screen
+                    name="Law"
+                    component={LawStack}
+                    options={{
+                        tabBarIcon: ({ color, size, focused }) => (
+                            <View style={{ flexWrap: "wrap", alignItems: "center" }}>
+                                <Image
+                                    source={require('../../assets/Law.png')}
                                     style={{ width: 35, height: 35, tintColor: color }}
                                 />
                                 <Dot focused={focused} />

@@ -26,7 +26,6 @@ const SplashScreen = ({ navigation }) => {
                 <Text style={styles.welcomeText}>
                     Hush
                     Kelibsiz
-                    Marhamat
                 </Text>
             </View>
             <View style={styles.bottonText}>

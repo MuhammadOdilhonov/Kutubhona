@@ -115,7 +115,7 @@ const CardBook = (props) => {
                 <View style={styles.CardBook_right}>
                     <Text style={styles.CardBook_right_BookName}>{prosp.NameBook}</Text>
                     <Text style={styles.CardBook_right_BookInfo}>{prosp.SeriesBook}</Text>
-                    <Text style={styles.CardBook_right_BookInfo}>After:{prosp.AfterBook}</Text>
+                    <Text style={styles.CardBook_right_BookInfo}>Aftor:{prosp.AfterBook}</Text>
                     <TouchableOpacity style={styles.CardBook_right_button} onPress={() => { prosp.BooleanBook ? ViewNewWindow(prosp) : handleButtonClick(prosp) }}>
                         <Text style={styles.CardBook_right_buttonText}>
                             {prosp.BooleanBook ? "Kim olib ketganini ko`rish" : "Arendaga berish"}
