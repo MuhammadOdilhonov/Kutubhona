@@ -4,25 +4,27 @@ import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Linking } from 'r
 const Law = () => {
     // Funksiyalar URL ni ochish uchun
     const openLink1 = () => {
-        Linking.openURL('https://example.com/781-karor');
-    };
-
-    const openLink2 = () => {
-        Linking.openURL('https://example.com/782-karor');
+        Linking.openURL(' https://lex.uz/docs/1769736');
     };
 
     return (
         <ScrollView style={styles.LawScreen}>
             <Text style={styles.headerText}>Yordamchi hujjatlar</Text>
             <View style={styles.card}>
-                <Text style={styles.cardText}>781-qaror</Text>
+                <Text style={styles.cardText}>O‘RQ-280-son «Axborot-kutubxona faoliyati to‘g‘risida»</Text>
                 <TouchableOpacity style={styles.button} onPress={openLink1}>
                     <Text style={styles.buttonText}>Ko'rish</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.card}>
-                <Text style={styles.cardText}>782-qaror</Text>
-                <TouchableOpacity style={styles.button} onPress={openLink2}>
+                <Text style={styles.cardText}>O‘RQ-42-son «Mualliflik huquqi va turdosh huquqlar to‘g‘risida»</Text>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>Ko'rish</Text>
+                </TouchableOpacity>
+            </View>
+            <View style={styles.card}>
+                <Text style={styles.cardText}>2020 — 2025 yillarda kitobxonlik madaniyatini rivojlantirish va qo'llab-quvvatlash milliy dasturini tasdiqlash tog'risida 781-sonli qaror</Text>
+                <TouchableOpacity style={styles.button}>
                     <Text style={styles.buttonText}>Ko'rish</Text>
                 </TouchableOpacity>
             </View>
