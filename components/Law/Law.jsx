@@ -4,7 +4,7 @@ import { View, StyleSheet, Text, TouchableOpacity, ScrollView, Linking } from 'r
 const Law = () => {
     // Funksiyalar URL ni ochish uchun
     const openLink1 = () => {
-        Linking.openURL(' https://lex.uz/docs/1769736');
+        Linking.openURL('https://lex.uz/docs/1769736');
     };
 
     return (
